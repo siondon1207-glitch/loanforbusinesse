@@ -1,23 +1,780 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+    <!-- JSON-LD Structured Data for SEO (Optimized for Naver/Google Snippets & AI Search Crawlers) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FinancialService",
+        "name": "자영업자대출 맞춤형 통합 비교 센터",
+        "url": "https://loan.reliabledone.com",
+        "description": "2026년 정부지원 자영업자대출 및 소상공인 정책자금 맞춤 분석 비교 플랫폼. 저금리 대환대출, 창업 및 운영자금 예상 한도와 금리 계산기를 통해 최적의 금융 컨설팅을 제공합니다.",
+        "provider": {
+            "@type": "Organization",
+            "name": "자영업자 금융지원 협의회",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://loan.reliabledone.com/img/logo.webp"
+            }
+        },
+        "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Korea"
+        },
+        "feesAndCommissionsSpecification": "https://loan.reliabledone.com/fees",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://loan.reliabledone.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CSS Styling (Modern, Soft Color Palette, Clean Visual Hierarchy) -->
+    <style>
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif; 
+            background-color: #f4f7fa; 
+            color: #2c3e50; 
+            line-height: 1.8; 
+        }
+        a { text-decoration: none; color: inherit; }
+        ul, li { list-style: none; padding: 0; margin: 0; }
+        h1, h2, h3, h4, h5 { margin: 0; line-height: 1.4; color: #1e3a8a; font-weight: 700; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Color Palette: Professional, Trustworthy, Soft Pastel Tones */
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff; /* Soft Pale Blue */
+            --accent: #0f766e; /* Soft Teal */
+            --accent-light: #f0fdfa; /* Soft Mint */
+            --highlight: #b45309; /* Warm Amber */
+            --highlight-light: #fffbeb; /* Soft Yellow */
+            --gray-dark: #1f2937;
+            --gray-medium: #4b5563;
+            --gray-light: #f3f4f6;
+            --white: #ffffff;
+        }
+
+        /* Header Styling */
+        .header { background-color: var(--white); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #e5e7eb; }
+        .header-menu { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+        .navbar-brand { font-size: 1.5rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; }
+        .navbar-brand span { color: var(--accent); margin-left: 5px; }
+        .nav-link { font-size: 1rem; color: var(--gray-medium); font-weight: 600; padding: 10px 15px; transition: color 0.3s; }
+        .nav-link:hover { color: var(--primary); }
+
+        /* Hero Section */
+        .hero-banner { background: linear-gradient(135deg, #e0f2fe 0%, #e0f2fe 30%, #f0fdf4 100%); padding: 100px 0; text-align: center; border-bottom: 1px solid #e2e8f0; }
+        .hero-content { max-width: 900px; margin: 0 auto; }
+        .hero-content h1 { font-size: 3rem; font-weight: 800; color: var(--primary); margin-bottom: 25px; letter-spacing: -0.05em; }
+        .hero-content p { font-size: 1.25rem; color: var(--gray-medium); margin-bottom: 35px; word-break: keep-all; }
+        .main-cta-btn { background-color: var(--primary); color: var(--white); padding: 18px 36px; border-radius: 12px; font-weight: 700; font-size: 1.2rem; transition: background-color 0.3s, transform 0.2s; box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2); display: inline-block; }
+        .main-cta-btn:hover { background-color: #172554; transform: translateY(-2px); color: var(--white); }
+
+        /* Custom Visual Graph Structure (Mindmap representation) */
+        .visual-graph-container { background-color: var(--white); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin: 50px 0; border: 1px solid #e5e7eb; }
+        .visual-graph-title { text-align: center; margin-bottom: 30px; font-size: 1.5rem; color: var(--primary); }
+        .visual-graph { display: flex; justify-content: space-around; align-items: stretch; gap: 20px; flex-wrap: wrap; }
+        .graph-node { flex: 1; min-width: 250px; background-color: var(--primary-light); border: 2px solid #bfdbfe; border-radius: 16px; padding: 25px; text-align: center; transition: transform 0.3s; }
+        .graph-node:hover { transform: translateY(-5px); }
+        .graph-node.accent { background-color: var(--accent-light); border-color: #99f6e4; }
+        .graph-node.highlight { background-color: var(--highlight-light); border-color: #fde68a; }
+        .graph-node h4 { font-size: 1.25rem; margin-bottom: 12px; color: var(--primary); }
+        .graph-node.accent h4 { color: var(--accent); }
+        .graph-node.highlight h4 { color: var(--highlight); }
+        .graph-node p { font-size: 0.95rem; color: var(--gray-medium); margin: 0; }
+
+        /* Content Sections */
+        .content-section { padding: 80px 0; background-color: var(--white); }
+        .content-section.alt-bg { background-color: #fafbfc; }
+        .section-title h2 { font-size: 2.25rem; font-weight: 800; color: var(--primary); margin-bottom: 20px; text-align: center; }
+        .section-title p { color: var(--gray-medium); font-size: 1.15rem; text-align: center; max-width: 800px; margin: 0 auto 50px auto; word-break: keep-all; }
+
+        /* Cards and Info Blocks */
+        .info-card { background-color: var(--white); border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); padding: 35px; margin-bottom: 30px; border: 1px solid #e5e7eb; transition: box-shadow 0.3s; }
+        .info-card:hover { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); }
+        .info-card h3 { font-size: 1.6rem; color: var(--primary); margin-bottom: 15px; border-bottom: 2px solid var(--primary-light); padding-bottom: 10px; }
+        .info-card p { color: var(--gray-medium); font-size: 1.05rem; margin-bottom: 15px; }
+        
+        /* Modern Styled Lists (Replacing standard markers with CSS) */
+        .styled-list { padding-left: 0; margin-bottom: 20px; }
+        .styled-list li { position: relative; padding-left: 24px; margin-bottom: 12px; font-size: 1.05rem; color: var(--gray-dark); }
+        .styled-list li::before { content: ""; position: absolute; left: 0; top: 10px; width: 8px; height: 8px; background-color: var(--accent); border-radius: 50%; }
+
+        /* Tables and Data Presentation */
+        .table-responsive-container { margin: 40px 0; background-color: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid #e5e7eb; }
+        .data-table { width: 100%; border-collapse: collapse; font-size: 1rem; text-align: left; }
+        .data-table th, .data-table td { padding: 18px 24px; border-bottom: 1px solid #e5e7eb; }
+        .data-table th { background-color: var(--primary); color: var(--white); font-weight: 700; letter-spacing: 0.03em; }
+        .data-table tr:last-child td { border-bottom: none; }
+        .data-table tr:nth-child(even) { background-color: #f9fafb; }
+        .data-table .highlight-cell { background-color: var(--accent-light); font-weight: 700; color: var(--accent); }
+        .data-table .warn-cell { background-color: var(--highlight-light); font-weight: 700; color: var(--highlight); }
+
+        /* Form Area Styles */
+        .form-area { background-color: var(--white); padding: 50px; border-radius: 24px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05); border: 1px solid #e5e7eb; max-width: 800px; margin: 0 auto; }
+        .form-group { margin-bottom: 25px; }
+        .form-label { display: block; font-weight: 700; margin-bottom: 10px; color: var(--primary); font-size: 1.05rem; }
+        .form-input, .form-select { width: 100%; padding: 14px 20px; border: 1px solid #d1d5db; border-radius: 10px; box-sizing: border-box; font-size: 1rem; color: var(--gray-dark); background-color: #f9fafb; transition: all 0.3s; }
+        .form-input:focus, .form-select:focus { border-color: var(--primary); background-color: var(--white); outline: none; box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1); }
+        .form-submit-btn { background-color: var(--accent); color: var(--white); padding: 18px 30px; border: none; border-radius: 10px; font-weight: 700; font-size: 1.15rem; cursor: pointer; transition: background-color 0.3s; width: 100%; box-shadow: 0 4px 15px rgba(15, 118, 110, 0.2); }
+        .form-submit-btn:hover { background-color: #115e59; }
+
+        /* Floating Side Form (Desktop only) */
+        .sideForm { position: fixed; right: 30px; top: 15%; width: 320px; background-color: var(--white); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; z-index: 999; border: 1px solid #e5e7eb; }
+        .sideForm.on { right: -360px; }
+        .sideForm-title { font-size: 1.35rem; font-weight: 800; color: var(--primary); margin-bottom: 20px; text-align: center; }
+
+        /* Accordion FAQ Styling */
+        .accordion-item { border: 1px solid #e5e7eb; border-radius: 12px; margin-bottom: 15px; overflow: hidden; background-color: var(--white); }
+        .accordion-button { padding: 20px 24px; font-weight: 700; color: var(--primary); background-color: var(--white); font-size: 1.1rem; }
+        .accordion-button:not(.collapsed) { background-color: var(--primary-light); color: var(--primary); box-shadow: none; }
+        .accordion-body { padding: 24px; color: var(--gray-medium); font-size: 1.05rem; line-height: 1.8; background-color: var(--white); }
+
+        /* Footer Styling */
+        .footer { background-color: var(--gray-dark); color: #9ca3af; padding: 60px 0; font-size: 0.95rem; border-top: 5px solid var(--primary); }
+        .footer h4 { color: var(--white); margin-bottom: 20px; font-size: 1.2rem; }
+        .footer-links a { color: #d1d5db; transition: color 0.3s; margin-right: 15px; display: inline-block; margin-bottom: 10px; }
+        .footer-links a:hover { color: var(--accent-light); }
+        .footer-info p { margin-bottom: 8px; }
+
+        /* Text Styling Utilities */
+        .text-highlight { color: var(--highlight); font-weight: 700; }
+        .text-accent { color: var(--accent); font-weight: 700; }
+        .bg-light-soft { background-color: #fafbfd; }
+
+        /* Media Queries */
+        @media (max-width: 1024px) {
+            .sideForm { display: none; }
+        }
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.25rem; }
+            .hero-content p { font-size: 1.1rem; }
+            .content-section { padding: 50px 0; }
+            .section-title h2 { font-size: 1.75rem; }
+            .data-table th, .data-table td { padding: 12px 16px; font-size: 0.9rem; }
+            .form-area { padding: 30px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Navigation Area -->
+    <header class="header">
+        <div class="container header-menu">
+            <a class="navbar-brand" href="/">
+                자영업자대출<span>통합 비교 센터</span>
+            </a>
+            <nav class="d-none d-lg-block">
+                <ul class="d-flex align-items-center">
+                    <li><a class="nav-link" href="#intro-section">2026 자영업 자금 트렌드</a></li>
+                    <li><a class="nav-link" href="#loan-types">정부지원 대출 종류</a></li>
+                    <li><a class="nav-link" href="#regional-support">전국 지역별 혜택</a></li>
+                    <li><a class="nav-link" href="#loan-comparison">한도 및 금리 비교</a></li>
+                    <li><a class="nav-link" href="#faq-section">자주 묻는 질문</a></li>
+                    <li><a class="nav-link" href="#expert-sources">공식 신뢰 출처</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
     <main>
-      <h1>Home page</h1>
+        
+        <!-- Section 1: Hero Banner (Main Visual) -->
+        <section class="hero-banner">
+            <div class="container hero-content">
+                <h1>2026년 정부지원 자영업자대출 한도 및 금리 맞춤형 통합 비교</h1>
+                <p>소상공인시장진흥공단 직접대출부터 시중은행 다이렉트 자금 및 인터넷은행 전용 상품까지. 금리 계산기로 산출한 실시간 최적의 자영업자대출 견적을 제공하여 경영 안정과 비용 절감을 도웁니다.</p>
+                <a href="#mainForm" class="main-cta-btn">내 자영업자대출 예상 한도 및 최저 금리 확인하기</a>
+            </div>
+        </section>
+
+        <!-- Dynamic Structural Mindmap Section (Visual Representation of Information Architecture) -->
+        <section class="container my-5">
+            <div class="visual-graph-container">
+                <h3 class="visual-graph-title">2026 자영업자대출 포트폴리오 구조도</h3>
+                <div class="visual-graph">
+                    <div class="graph-node">
+                        <h4>정부지원 정책자금</h4>
+                        <p>소상공인시장진흥공단 직접 대출 및 지역 신용보증재단 연계 간접 융자 상품 포함</p>
+                    </div>
+                    <div class="graph-node accent">
+                        <h4>1금융권 및 인터넷은행</h4>
+                        <p>토스뱅크, 카카오뱅크, 케이뱅크 및 시중은행 다이렉트 모바일 앱 전용 상품</p>
+                    </div>
+                    <div class="graph-node highlight">
+                        <h4>대환대출 특별지원</h4>
+                        <p>고금리 가계대출 및 고이율 사업자 자금을 저금리 정책 상품으로 전환하는 혜택</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: 2026 Market Analysis and Trends -->
+        <section class="content-section alt-bg" id="intro-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>2026년 자영업자대출 시장 전망 및 자금 조달 트렌드</h2>
+                    <p>장기화된 고물가와 고금리 기조 속에서 소상공인의 경영 안정화와 저금리 대환을 돕기 위해 2026년 정부 예산이 전격 투입됩니다. 핵심적인 변화 트렌드와 함께 나에게 가장 유리한 자금 조달 전략을 확인해 보세요.</p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="info-card">
+                            <h3>소상공인 정책자금 예산 역대급 편성</h3>
+                            <p>정부는 소상공인과 자영업자의 금융 부담을 완화하기 위해 소상공인시장진흥공단 정책자금 융자사업 예산을 대폭 확충하였습니다. 이번 자금 배정의 주요 특징은 저신용, 소외계층, 청년 창업자 등 취약 계층의 접근성을 크게 높이고, 시중 은행의 대출 금리보다 상대적으로 매우 저렴한 우대 조건의 이율을 적용한다는 점입니다.</p>
+                            <p>또한, 기존의 복잡했던 심사 단계를 디지털 연계를 통해 간소화하여 모바일 앱이나 인터넷을 통한 온라인 신청 접수 후 빠르면 2주 내에 대출금 실행이 완료되는 구조가 자리를 잡았습니다.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="info-card">
+                            <h3>인터넷 전문은행의 비대면 상품 확장</h3>
+                            <p>토스, 카카오톡 기반의 카카오뱅크, 케이뱅크 등 인터넷은행들은 신규 개인사업자 전용 다이렉트 신용대출 상품을 경쟁적으로 출시하고 있습니다. 지점 방문 없이 스마트폰 어플 설치만으로 단 몇 분 만에 대출 예상 한도와 금리 견적을 즉시 계산할 수 있어 편리함이 매우 돋보입니다.</p>
+                            <p>특히 이들 플랫폼은 자체적인 AI 알고리즘과 빅데이터 분석을 통해 전통적인 신용평가 방식(NICE, KCB 등)에서 불리했던 개인사업자들의 실질적인 매출 발생 주기와 카드 가맹 데이터, 세금 납부 실적을 반영하여 더 합리적인 금리 계산 및 저렴한곳 매칭 서비스를 선보입니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: In-depth Loan Types and Classification -->
+        <section class="content-section" id="loan-types">
+            <div class="container">
+                <div class="section-title">
+                    <h2>2026년 주요 정부지원 자영업자대출 종류 및 특징</h2>
+                    <p>소상공인 정책자금은 크게 소진공에서 즉시 융자해주는 직접대출과, 협약 은행을 통해 보증서 기반으로 융자를 실행하는 간접대출로 구분됩니다. 자금의 사용 목적에 따라 알맞은 종류를 비교 선택해야 합니다.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="info-card h-100">
+                            <h3>일반경영안정자금</h3>
+                            <p>가장 범용성 높은 정부지원 상품으로 상시근로자 5인 미만(제조업 등은 10인 미만)의 개인사업자 및 법인소상공인을 대상으로 합니다.</p>
+                            <ul class="styled-list">
+                                <li>예상 한도: 업체당 최고 7,000만 원</li>
+                                <li>금리 수준: 정책 기준 금리 변동에 연동</li>
+                                <li>주요 특징: 사업장 운영 자본금, 원자재 구매 비용 등으로 자유롭게 활용 가능</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-card h-100">
+                            <h3>저신용 소상공인 자금</h3>
+                            <p>신용점수가 낮아 1금융권이나 주거래 은행에서 대출이 어려워 높은 사채 이자 비용을 지불해야 했던 소상공인을 집중적으로 구제하는 자금입니다.</p>
+                            <ul class="styled-list">
+                                <li>예상 한도: 업체당 최대 3,000만 원</li>
+                                <li>금리 수준: 연 2.0퍼센트 내외 고정금리 적용</li>
+                                <li>주요 특징: NICE 신용점수 하위 20퍼센트 이하인 자영업자도 신청 가능</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-card h-100">
+                            <h3>소상공인 대환대출</h3>
+                            <p>연 7퍼센트 이상의 높은 이율을 부담하고 있는 기존 고금리 가계대출 혹은 사업자 대출 상품을 최저 연 4퍼센트대의 고정 저금리로 대환하여 월 이자 비용을 줄여주는 특화 상품입니다.</p>
+                            <ul class="styled-list">
+                                <li>예상 한도: 대출 전환 한도 최대 5,000만 원</li>
+                                <li>금리 수준: 연 4.5퍼센트 대 내외 고정</li>
+                                <li>주요 특징: 카드론, 고금리 저축은행 대출을 우량한 저금리로 대출 갈아타기 유용</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Data Visualization (Comparison Table of Interest Rates & Limits) -->
+        <section class="content-section alt-bg" id="loan-comparison">
+            <div class="container">
+                <div class="section-title">
+                    <h2>2026 자영업자대출 유형별 금리 및 조건 비교표</h2>
+                    <p>각 대출 상품마다 신청할 수 있는 대상과 한도 금액, 평균 예상 금리, 보증서 발급 필요 여부가 다릅니다. 이 차이점을 꼼꼼히 비교하여 나에게 제일 알맞은 상품을 찾고 금리 계산 시 지불 비용을 최소화하시기 바랍니다.</p>
+                </div>
+
+                <div class="table-responsive-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>자금 구분</th>
+                                <th>지원 한도 (최대)</th>
+                                <th>예상 평균 금리</th>
+                                <th>상환 기간 및 방법</th>
+                                <th>추천 대상 및 자격</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="fw-bold">소진공 일반경영자금</td>
+                                <td>7,000만 원</td>
+                                <td>변동 연 3.2% ~ 3.8%</td>
+                                <td>5년 (2년 거치, 3년 균등상환)</td>
+                                <td>신용 무관, 상시근로자 5인 미만 소상공인</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-accent">청년고용연계자금</td>
+                                <td>1억 원</td>
+                                <td class="highlight-cell">고정 연 2.0% 대</td>
+                                <td>5년 (2년 거치, 3년 균등상환)</td>
+                                <td>만 39세 이하 청년 사업자 및 고용 유지 기업</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-highlight">저신용자 특별지원자금</td>
+                                <td>3,000만 원</td>
+                                <td class="warn-cell">고정 연 2.0%</td>
+                                <td>5년 (2년 거치, 3년 균등상환)</td>
+                                <td>신용평점 KCB 744점 이하인 취약 차주</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">시중은행 개인사업자 신용</td>
+                                <td>1억 5,000만 원</td>
+                                <td>연 4.5% ~ 6.5%</td>
+                                <td>1년 단위 만기 일시 (연장 가능)</td>
+                                <td>매출 증빙 우수 및 신용도 양호 사업자</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">토스/카카오 비대면 대출</td>
+                                <td>1억 원</td>
+                                <td>연 4.2% ~ 5.9%</td>
+                                <td>최장 5년 원리금 균등 또는 만기일시</td>
+                                <td>모바일 다이렉트 간편 신청 희망 자영업자</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-muted text-center mt-3">위 예시 수치는 2026년 기준 금융 감독 통계에 의거한 예상이율과 한도이며, 자영업자 본인의 신용 거래 패턴, 이력에 따라 다르게 산출될 수 있습니다.</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Geographical Support & guarantee credit foundation differences -->
+        <section class="content-section" id="regional-support">
+            <div class="container">
+                <div class="section-title">
+                    <h2>전국 지자체 연계 및 지역별 신용보증재단 특별 융자 혜택</h2>
+                    <p>우리 매장이 위치한 지역에 따라 추가적인 이자 지원금(이차보전) 혜택이나 특례 보증서 발급이 가능합니다. 전국 30개 이상의 주요 지방 자치 단체에서 개별적으로 추진 중인 소상공인 혜택을 놓치지 마세요.</p>
+                </div>
+
+                <div class="info-card bg-light-soft">
+                    <h3>지역 경제 맞춤형 지역 신용보증 연계 정책</h3>
+                    <p>정부 자금 외에도 각 광역시도와 시군구 자치단체가 출연금을 내고 신용보증재단이 특별한 조건의 보증을 서주는 상품들이 다양하게 마련되어 있습니다. 이러한 상품들은 이자의 일부를 지자체에서 직접 부담해주는 이차보전 혜택이 적용되어 실질 이자가 매우 싼곳으로 손꼽힙니다.</p>
+                    <p>적용 대상 주요 행정 구역 및 도시명은 다음과 같습니다.</p>
+                    <div class="p-3 bg-white border rounded-3 text-dark">
+                        서울특별시, 부산광역시, 대구광역시, 인천광역시, 광주광역시, 대전광역시, 울산광역시, 세종특별자치시를 기점으로 하여 경기도 주요 시 지역인 수원시, 고양시, 용인시, 성남시, 부천시, 화성시, 안산시, 남양주시, 안양시, 평택시, 시흥시, 파주시, 의정부시, 김포시, 하남시, 광명시, 군포시, 양주시, 이천시, 구리시, 의왕시, 포천시, 여주시, 동두천시, 과천시 등 경기 일대 전역이 포함됩니다. 또한 강원지역의 춘천시, 원주시, 강릉시와 충청권역의 청주시, 충주시, 천안시, 아산시 및 전라권역의 전주시, 익산시, 군산시, 여수시, 순천시, 목포시, 그리고 경상권역의 포항시, 구미시, 경주시, 창원시, 김해시, 양산시, 진주시, 마지막으로 제주특별자치도의 제주시와 서귀포시까지 포함하여 전국 30개 이상의 주요 권역에 밀착형 보증 업무가 활발하게 작동하고 있습니다.
+                    </div>
+                    <p class="mt-3">본인이 영위하는 매장 사업자등록증 상의 주소지가 위 지역 중 어디에 해당하느냐에 따라 보증 수수료 인하율과 최저 금리 견적이 결정되므로, 사전에 가까운 지점이나 모바일 어플을 이용하여 상담 신청을 진행해 보시는 방향을 강력히 권유해 드립니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: User Engagement Form 1 (Detailed Consultant Form) -->
+        <section class="content-section alt-bg" id="mainForm">
+            <div class="container">
+                <div class="form-area">
+                    <h2 class="text-center mb-4">내 자영업자대출 맞춤 금리 및 한도 1분 무료 계산기</h2>
+                    <p class="text-center text-muted mb-4">입력하신 신용 등급 및 매출액을 토대로 2026년 정부 정책자금과 1금융권 저렴한곳 상품을 즉시 대조 분석하여 가장 승인율 높은 컨설팅 견적을 전달합니다.</p>
+                    
+                    <form id="calculatorForm">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="userName" class="form-label">성함 및 대표자명</label>
+                                <input type="text" id="userName" class="form-input" placeholder="성함을 입력해주세요" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="userPhone" class="form-label">휴대폰 번호 (연락처)</label>
+                                <input type="tel" id="userPhone" class="form-input" placeholder="숫자만 입력해주세요" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="userRegion" class="form-label">사업장 소재 지역 선택</label>
+                                <select id="userRegion" class="form-select" required>
+                                    <option value="">소재 시/도를 선택하세요</option>
+                                    <option value="seoul">서울특별시</option>
+                                    <option value="gyeonggi">경기도</option>
+                                    <option value="incheon">인천광역시</option>
+                                    <option value="busan">부산광역시</option>
+                                    <option value="daegu">대구광역시</option>
+                                    <option value="gwangju">광주광역시</option>
+                                    <option value="daejeon">대전광역시</option>
+                                    <option value="ulsan">울산광역시</option>
+                                    <option value="etc">기타 지방 도 및 세종시</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="bizDuration" class="form-label">업력 및 운영 기간</label>
+                                <select id="bizDuration" class="form-select" required>
+                                    <option value="">개업 연도를 기준으로 선택하세요</option>
+                                    <option value="new">신규 개업 (6개월 미만)</option>
+                                    <option value="mid">창업 3년 이하 초기 소상공인</option>
+                                    <option value="long">개업 3년 이상 안정적 자영업자</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="salesAmount" class="form-label">연간 예상 매출액</label>
+                                <select id="salesAmount" class="form-select" required>
+                                    <option value="">연 매출 한도를 선택하세요</option>
+                                    <option value="under50">5천만 원 미만 (영세 개인 사업자)</option>
+                                    <option value="under200">2억 원 미만</option>
+                                    <option value="under500">5억 원 미만</option>
+                                    <option value="over500">5억 원 이상</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="desiredAmount" class="form-label">필요하신 대출 희망 금액</label>
+                                <select id="desiredAmount" class="form-select" required>
+                                    <option value="">희망 대출액 단위를 선택하세요</option>
+                                    <option value="10">최대 3천만 원 이하</option>
+                                    <option value="30">3천만 원 이상 ~ 5천만 원</option>
+                                    <option value="70">5천만 원 이상 ~ 1억 원</option>
+                                    <option value="100">1억 원 이상 고액 시설 자금</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group my-4">
+                            <div class="d-flex align-items-center">
+                                <input type="checkbox" id="privacyAgree" class="form-check-input me-2" required style="width: 20px; height: 20px; cursor: pointer;">
+                                <label for="privacyAgree" class="form-check-label" style="font-size: 0.95rem; cursor: pointer;">
+                                    개인정보 수집 및 상담 목적의 제3자 제공 활용안내 약관에 동의합니다.
+                                </label>
+                                <a href="#" class="ms-2 btnViewPolicy text-primary fw-bold" style="font-size: 0.9rem;">[보기]</a>
+                            </div>
+                        </div>
+
+                        <button type="button" id="btnSubmitCalculator" class="form-submit-btn">나에게 맞는 맞춤 대출 견적 결과 산출하기</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Community Reviews, Rumors, and Real Experiences -->
+        <section class="content-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>온라인 커뮤니티 및 소셜 미디어 생생 정보와 내돈내산 대출 후기</h2>
+                    <p>실제 대출을 먼저 실행하고 점포 경영을 이어가고 있는 선배 자영업자들의 솔직한 이야기와 디시인사이드, 보배드림, 에펨코리아, 펨코 등의 유명 온라인 채널에서 오가는 꿀팁을 전수해 드립니다.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="info-card">
+                            <h3>에펨코리아 및 펨코 게시판 추천 노하우</h3>
+                            <p>커뮤니티 회원들의 성공담을 종합해보면, 소상공인시장진흥공단 직접대출 심사를 받기 전에 소상공인마당 온라인 사이트에서 무료로 개설하는 경영 및 마케팅 관련 인터넷 동영상 컨설팅 강좌를 미리 이수해 놓으면 가산점이 부여된다고 전합니다.</p>
+                            <p>또한 모바일 앱에서 한도 조회를 자주 한다고 해서 신용 점수가 떨어지지 않는 2026년 신용평가 개편안을 공유하여 자영업자들이 안심하고 토스나 카카오톡 플랫폼으로 사전 가계산을 해보도록 독려하고 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="info-card">
+                            <h3>보배드림 내돈내산 저금리 대환 경험담</h3>
+                            <p>연 9퍼센트대의 대부업체나 카드사 장기 카드대출을 보유 중이던 경기도 수원시 소재의 한 음식점 자영업자는 신용보증재단 특례 대환대출을 통해 최종 연 4.5퍼센트로 갈아탄 내돈내산 일지를 올렸습니다.</p>
+                            <p>이 분의 주장에 의하면, 정부 일자리 창출 보증이나 제로페이 가맹점 등록 이력, 풍수해보험 가입 증명 서류가 있을 시 보증료 할인 감면 혜택까지 받아 부대비용 가격을 크게 깎았다고 하며, 서류 누락 없이 꼼꼼하게 챙기는 것이 가장 중요하다는 조언을 남겼습니다.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="info-card">
+                            <h3>디시인사이드 개인사업자 정보 교류 요약</h3>
+                            <p>창업 초기에 가장 싼곳 대출을 알아보는 신규 자영업자들은 시중은행의 일률적인 금리 테이블보다, 중소벤처기업부의 특별 전용 대출을 1순위로 두는 것이 무조건 현명하다고 입을 모읍니다.</p>
+                            <p>인스타그램이나 유튜브, 페이스북, 트위터 같은 소셜 마케팅으로 매출을 견인하려는 아이디어가 있는 청년 창업자라면 청년창업 전용 소상공인 대출 상품을 신청하는 것이 제일 저렴한 금리로 풍부한 지원 한도를 확보할 수 있는 지름길이라는 점을 거듭 강조합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Authoritative External Resources (SEO Authority Building) -->
+        <section class="content-section alt-bg" id="expert-sources">
+            <div class="container">
+                <div class="section-title">
+                    <h2>신뢰할 수 있는 소상공인 금융 공식 출처 가이드</h2>
+                    <p>본 사이트의 분석 정보 외에도 객관적인 공적 기관의 기준 데이터를 함께 확인하시면 더욱 명쾌하고 손해 없는 자금 설계가 가능합니다. 불법 보이스피싱이나 중개 수수료 사기 위험을 방지하기 위해 공인된 곳만 안내합니다.</p>
+                </div>
+
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+                        <div class="info-card bg-white">
+                            <h3>2. 소상공인 정보 백과 (나무위키)</h3>
+                            <p>소상공인 보호 및 정부 자금 지원의 법적인 배경, 역사적 흐름과 용어에 대한 명쾌한 사전적 이해를 제공합니다.</p>
+                            <a href="https://namu.wiki/w/%EC%86%8C%EC%83%81%EA%B3%B5%EC%9D%B8" target="_blank" class="text-accent fw-bold">나무위키 소상공인 사전 바로가기</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-card bg-white">
+                            <h3>3. 소상공인시장진흥공단 (SEMAS)</h3>
+                            <p>정부 공식 정책 자금의 주무 기관으로서 직접대출 온라인 신청 및 대리대출 확인서 발급 등의 대다수 업무가 직접 이루어지는 공식 포털입니다.</p>
+                            <a href="https://www.semas.or.kr/" target="_blank" class="text-accent fw-bold">소상공인시장진흥공단 홈페이지 바로가기</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-card bg-white">
+                            <h3>4. 지역신용보증재단연합회 (KOREG)</h3>
+                            <p>전국 주요 지방 시도별 신용보증재단의 종합 정보를 조회하고, 보증서 한도 산출 가이드를 객관적으로 보여주는 공공 기관 웹입니다.</p>
+                            <a href="https://www.koreg.or.kr/" target="_blank" class="text-accent fw-bold">신용보증재단연합회 바로가기</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-card bg-white">
+                            <h3>5. 금융위원회 (FSC)</h3>
+                            <p>국내 모든 시중은행, 저축은행 및 인터넷은행의 이율 체계를 감시하고, 서민금융진흥원 등 자영업자 구제 제도를 총괄 설계하는 정부 기구입니다.</p>
+                            <a href="https://www.fsc.go.kr/" target="_blank" class="text-accent fw-bold">금융위원회 공식 보도자료 바로가기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: In-depth FAQ (SEO Optimization) -->
+        <section class="content-section" id="faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>자영업자대출 및 소상공인 정책자금 FAQ</h2>
+                    <p>대출을 고민하시는 대표님들이 평소 가장 빈번하게 질문하고 궁금해하시는 사항을 2026년 개편 시행령 기준으로 엄격하게 정리했습니다.</p>
+                </div>
+
+                <div class="accordion" id="loanFaq">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq1">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq1" aria-expanded="false" aria-controls="collapseFaq1">
+                                Q1: 아직 사업을 개시하지 않은 신규 창업 예정자도 자영업자대출이 가능한가요?
+                            </button>
+                        </h3>
+                        <div id="collapseFaq1" class="accordion-collapse collapse" aria-labelledby="faq1" data-bs-parent="#loanFaq">
+                            <div class="accordion-body">
+                                예, 충분히 가능합니다. 소상공인시장진흥공단의 청년창업자금이나 지역 신용보증재단의 신규 창업 보증 상품을 활용하시면 사업자등록 전 혹은 등록 후 3개월 이내라도 타당한 사업계획서 검토를 거쳐 한도가 원활히 발급됩니다. 이 경우에는 사업장의 담보 대신 대표자 본인의 신용도와 실현 가능한 사업 아이템 위주로 신중한 가치 심사가 들어갑니다.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq2" aria-expanded="false" aria-controls="collapseFaq2">
+                                Q2: 기존에 이미 다른 사업자 대출 잔액이 있는 상태에서 추가 증액이 가능한지 궁금합니다.
+                            </button>
+                        </h3>
+                        <div id="collapseFaq2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#loanFaq">
+                            <div class="accordion-body">
+                                이미 기대출이 존재하더라도, 추가 신청이 원천적으로 막히는 것은 아닙니다. 매출액 대비 부채 가계산 상 비율이 감당할 수 있는 수준이거나, 최근의 매출 동향이 완만한 상승 곡선을 그린다면 특례 정책 보증 등을 통해 추가 운전 자본금을 신규 지원받으실 수 있습니다. 만약 고금리 가계대출을 여럿 사용 중이시라면 대환대출 상품으로 통합 이전을 하시는 것이 향후 신용점수 관리와 고정 비용 지불 측면에서 매우 추천됩니다.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq3" aria-expanded="false" aria-controls="collapseFaq3">
+                                Q3: 인터넷 비대면 대출과 시중 창구 대출의 실질적인 장단점과 차이점은 무엇인가요?
+                            </button>
+                        </h3>
+                        <div id="collapseFaq3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#loanFaq">
+                            <div class="accordion-body">
+                                인터넷 은행(토스, 카카오, 케이뱅크)의 비대면 다이렉트 대출의 최고 장점은 빠른 속도와 간편한 서류 증명입니다. 복잡한 서류 지참 및 외출 없이 일요일이나 늦은 야간 시간대라도 스마트폰 어플로 즉각적인 금리 한도 계산 및 대출금 입금까지 이루어집니다. 단점은 고유의 기성 전산 평가 모델을 거치기 때문에 예외적인 소명(예: 일시적인 재해로 인한 매출 타격, 향후 계약 수주 등)이 어렵다는 점입니다. 반면 주거래 은행 대면 신청은 방문이라는 번거로운 비용이 수반되는 대신, 전담 행원 및 전문 상담 전문가와의 긴밀한 면담을 통해 지자체별 특별 협약 자금 연계 혜택을 꼼꼼하게 유치해 내어 더 저렴한곳 매칭이 가능할 수도 있다는 차이점이 있습니다.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="faq4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq4" aria-expanded="false" aria-controls="collapseFaq4">
+                                Q4: 중개 수수료나 선수금을 요구하는 컨설팅 전문 업체가 있는데, 합법인가요?
+                            </button>
+                        </h3>
+                        <div id="collapseFaq4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#loanFaq">
+                            <div class="accordion-body">
+                                명백한 불법 행위입니다. 대한민국 법률상 금융기관 및 신용보증재단 보증 대출 심사 신청을 대행하거나 알선한다는 핑계로 고객에게 수수료, 사례비, 사은품 대금 혹은 현금을 직접 수취하는 것은 엄격하게 금지되어 있습니다. 금융위원회 및 사법 기관에서도 이러한 피해 예방을 위해 구글, 네이버 등 주요 포털 검색과 유튜브 영상 등을 제작하여 지속해서 캠페인을 펼치고 있습니다. 대출 상담 과정에서 사전에 비용을 요구하거나 승인을 무조건 장담하는 정체불명의 업체는 이용하지 마시고 반드시 소진공 혹은 가까운 지자체 신용보증재단에서 운영하는 정식 상담 사이트나 검증된 자격의 전문 자문가만을 활용하셔야 합니다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Deep Analysis of Business Financial Management -->
+        <section class="content-section bg-light-soft">
+            <div class="container">
+                <div class="section-title">
+                    <h2>자영업자대출 계산기를 활용한 스마트한 자금 상환 관리 방법</h2>
+                    <p>매출 가변성이 큰 개인사업자는 이자와 원금 상환 부담이 일시적으로 집중될 경우 갑작스러운 흑자 도산이나 유동성 함정에 직면할 우려가 매우 큽니다. 올바른 계획 수립의 가이드를 전해드립니다.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="info-card">
+                            <h3>원리금 상환 방식에 따른 총이자 비용 차이점 분석</h3>
+                            <p>대출을 알아볼 때 많은 사장님들이 단순히 매월 납부하는 금액 수준만 검토하시고 대출이 완료되는 시점까지 발생하는 누적 전체 지출 비용의 크기를 간과하는 오류를 범합니다. 대표적인 자영업자 금융 상환 종류 세 가지의 장단점은 다음과 같습니다.</p>
+                            
+                            <ul class="styled-list">
+                                <li><strong>원금균등 분할상환 방식:</strong> 매월 균일한 액수의 원금을 갚아 나감에 따라 남아 있는 원금이 점진적으로 줄어들어 최종 이자 비용이 제일 저렴한곳 장점이 있습니다. 초기 월 불입금 부담이 다소 크지만 시간이 지날수록 점차 매달 나가는 고정 비용이 낮아진다는 메리트가 있어, 안정적인 매출 성장이 예정된 요식업이나 유통업 사업자분들께 추천해 드립니다.</li>
+                                <li><strong>원리금균등 분할상환 방식:</strong> 대출 기간 내내 매달 원금과 이자를 더한 총납입 금액을 항상 동일하게 맞추는 구조입니다. 가계 자금 계획을 수립하기 무척이나 편리하여 인터넷은행 다이렉트 자금의 표준 옵션으로 널리 사용됩니다. 그러나 이자가 계산되는 총합이 원금균등 방식에 비해 약간 높아진다는 숨겨진 아쉬운 단점이 존재합니다.</li>
+                                <li><strong>만기일시 상환 방식:</strong> 대출 계약 기간 중에는 오직 매달 이자만 가볍게 납부하고, 마지막 만기일에 원금 전액을 한 번에 정리하는 고유의 종류입니다. 초기 비용이 최대로 아껴지는 극적인 장점이 있어서, 신설 기계 설비나 점포 신규 인테리어 등 초기 투자금이 필요하나 수익 발생까지 최소한 몇 달 이상의 리드타임이 필요한 상황에 유효합니다.</li>
+                            </ul>
+                            
+                            <p class="mt-4">자영업자대출 계산기 기능이나 토스, 카카오 앱의 상환 시뮬레이터를 통하여 약정 전 미리 각각의 상황에 알맞은 시나리오를 돌려보고, 본인이 감당할 수 있는 한도 안에서 자금 계획을 수립해야 사업을 중도에 양도하거나 폐업하는 사태를 미리 막을 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 11: Final Call to Action & Fast Form (Bottom of Page) -->
+        <section class="content-section form_bg py-5" style="background: linear-gradient(135deg, #1e3a8a 0%, #0f766e 100%);">
+            <div class="container text-center py-4">
+                <h2 class="text-white mb-3">2026년 무이자 및 초저금리 정책자금 선착순 접수 중</h2>
+                <p class="text-white-50 mb-5 max-width-800 mx-auto">국가적인 예산 조기 소진 전, 우리 사업장의 신규 한도 조회 및 정책 수혜 가능 여부 확인을 신속하게 완료하세요. 당사 통합 비교 솔루션은 어떠한 중개료나 알선비를 요구하지 않는 깨끗하고 합법적인 무료 안내 서비스입니다.</p>
+                
+                <div class="form-area text-start p-4 p-md-5" style="max-width: 650px;">
+                    <form id="quickForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="quickName" class="form-label">성함</label>
+                                <input type="text" id="quickName" class="form-input" placeholder="대표자 성함" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="quickPhone" class="form-label">연락처</label>
+                                <input type="tel" id="quickPhone" class="form-input" placeholder="휴대폰 번호 (- 제외)" required>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <div class="d-flex align-items-center">
+                                    <input type="checkbox" id="privacyAgreeQuick" class="form-check-input me-2" required style="width: 18px; height: 18px;">
+                                    <label for="privacyAgreeQuick" class="form-check-label text-muted" style="font-size: 0.9rem; cursor: pointer;">
+                                        개인정보 수집이용안내 동의 <span class="btnViewPolicy text-primary fw-bold">[보기]</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="button" id="btnSubmitQuick" class="form-submit-btn" style="background-color: var(--highlight);">실시간 정책대출 가능 여부 비교하기</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
     </main>
-  </body>
-</html>
+
+    <!-- Modal for Privacy Policy (Highly Detailed for User Trust and Compliance) -->
+    <div class="modal fade" id="privacyPopup" tabindex="-1" aria-labelledby="privacyPopupLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="privacyPopupLabel">개인정보 수집, 이용 및 제공 동의서</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="font-size: 0.95rem; line-height: 1.6; max-height: 450px; overflow-y: auto;">
+                    <p>본인(이하 신용주체)은 자영업자대출 통합 비교 센터가 제공하는 금리 견적 산출 및 정부지원 자금 조건 안내 서비스를 이용하기 위해 다음의 개인정보 취급 조항에 동의합니다.</p>
+                    <hr>
+                    <h6>1. 수집하는 개인정보 항목</h6>
+                    <p>필수 수집 정보: 성명, 연락처(휴대폰 번호), 사업장 지역 정보, 매출 추산 규모, 업력 정보</p>
+                    
+                    <h6>2. 개인정보 수집 및 이용 목적</h6>
+                    <p>안내 서비스 제공 및 맞춤형 대출 금리 계산 결과 전송, 지자체 보증금 우대 연계 및 중복 지원금 수혜 가능 여부 심사 자문.</p>
+                    
+                    <h6>3. 개인정보의 보유 및 이용 기간</h6>
+                    <p>동의서 제출일로부터 최대 5년간 보관하며, 이용 목적 달성 및 상담 거절, 고객의 명시적인 삭제 요구가 접수되는 즉시 지체 없이 완전 영구 파기합니다.</p>
+                    
+                    <h6>4. 제3자 제공 동의에 관한 규정</h6>
+                    <p>신용점수 산정 및 적격 심사를 촉진하기 위하여 공인 파트너 금융 수탁 업체 및 소상공인 컨설팅 기관에 개인정보가 안전하게 이전될 수 있습니다. 동의를 거부하실 수 있으나 거부 시 정확한 한도 조율 및 견적 산출이 불가합니다.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts (Using jQuery & Bootstrap JS) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            
+            // Common submission function
+            function processLoanRequest(formType, name, phone, agreeChecked, additionalData = {}) {
+                if (!agreeChecked) {
+                    alert("개인정보 처리 및 제3자 제공 동의가 필수적으로 수반되어야 상담 설계가 가능합니다.");
+                    const privacyModal = new bootstrap.Modal(document.getElementById('privacyPopup'));
+                    privacyModal.show();
+                    return;
+                }
+
+                if (!name || !phone) {
+                    alert("성함과 연락처 정보는 한도 산정의 필수 항목이므로 공란 없이 모두 작성해 주세요.");
+                    return;
+                }
+
+                // Simulate secure submission
+                alert(`성공적으로 대출 맞춤형 견적 요청이 접수되었습니다.\n\n[신청 내역]\n구분: ${formType}번 폼\n성함: ${name} 대표님\n전화번호: ${phone}\n\n신청하신 내용을 바탕으로 정부지원 최적의 저렴한곳 및 가용한 한도를 2026년 기준 알고리즘으로 자동 계산하여 실시간 무료 피드백을 안내해 드리겠습니다.`);
+                
+                // Form cleanup
+                if (formType === 1) {
+                    $("#calculatorForm")[0].reset();
+                } else if (formType === 2) {
+                    $("#quickForm")[0].reset();
+                } else if (formType === 3) {
+                    $("#sideWidgetForm")[0].reset();
+                }
+            }
+
+            // Form 1 Submission (Main calculator)
+            $("#btnSubmitCalculator").on("click", function () {
+                const name = $("#userName").val();
+                const phone = $("#userPhone").val();
+                const hasChecked = $("#privacyAgree").prop("checked");
+                const region = $("#userRegion").val();
+                const duration = $("#bizDuration").val();
+                
+                processLoanRequest(1, name, phone, hasChecked, { region, duration });
+            });
+
+            // Form 2 Submission (Bottom quick form)
+            $("#btnSubmitQuick").on("click", function () {
+                const name = $("#quickName").val();
+                const phone = $("#quickPhone").val();
+                const hasChecked = $("#privacyAgreeQuick").prop("checked");
+                
+                processLoanRequest(2, name, phone, hasChecked);
+            });
+
+            // Form 3 Submission (Side floating form)
+            $("#btnSubmitSide").on("click", function () {
+                const name = $("#sideName").val();
+                const phone = $("#sidePhone").val();
+                const hasChecked = $("#sideAgree").prop("checked");
+                const amount = $("#sideAmount").val();
+                
+                processLoanRequest(3, name, phone, hasChecked, { amount });
+            });
+
+            // Side Widget Scroll Position Behavior
+            $(window).scroll(function() {
+                const scrollPos = $(this).scrollTop();
+                const sideForm = $('.sideForm');
+                
+                if (scrollPos > 300) {
+                    sideForm.removeClass('on');
+                } else {
+                    sideForm.addClass('on');
+                }
+            });
+
+            // Modal Trigger binding
+            $(".btnViewPolicy").on("click", function(e) {
+                e.preventDefault();
+                const privacyModal = new bootstrap.Modal(document.getElementById('privacyPopup'));
+                privacyModal.show();
+            });
+
+            // Acceptance inside modal
+            $("#btnModalAccept").on("click", function() {
+                $("#privacyAgree").prop("checked", true);
+                $("#privacyAgreeQuick").prop("checked", true);
+                $("#sideAgree").prop("checked", true);
+            });
+        });
+    </script>
+  
